@@ -1,0 +1,18 @@
+<div>
+  <div>
+    <span>User Detail</span>
+  </div>
+  <p *ngIf= '!user'>Retrieving data ... this may take a moment...</p>
+  <table class='table table-sm' *ngIf='user'>
+    <tr><td>ID:</td><td>{{ user.id }}</td></tr>
+    <tr><td>Name:</td><td>{{ user.firstName }} {{ user.lastName }}</td></tr>
+    <tr><td>UserName:</td><td>{{ user.userName }}</td></tr>
+    <tr><td>PhoneNumber:</td><td>{{ user.phoneNumber }}</td></tr>
+    <tr><td>Email:</td><td>{{ user.eMail }}</td></tr>
+    <tr><td>Reviewer? :</td><td>{{ user.reviewer ? 'Yes' : 'No' }}</td></tr>
+    <tr><td>Admin? :</td><td>{{ user.admin ? 'Yes' : 'No' }}</td></tr>
+  </table>
+  <div>
+    <button class='btn btn-warning' (click)='delete()'>Delete</button>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div>
+    <div>
+  
+      <span>Vendor List </span>
+      | <a routerLink = '/vendors/create'>Create New</a> <!--pointing to a route to a different component-->
+  
+    </div>
+  
+    <table class = "table table-sm">
+      <thead>
+        <tr>
+          <td>Id</td>
+          <td>Code</td>
+          <td>Name</td>
+          <td>Address</td>
+          <td>City</td>
+          <td>State</td>
+          <td>Zip</td>
+          <td>Phone</td>
+          <td>Email</td>
+          <td>Preapproved?</td>
+          <td>Action</td>
+  
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let vendor of vendors'>
+          <td>{{ vendor.id }}</td>
+          <td>{{ vendor.code }}</td>
+          <td>{{ vendor.name }}</td>
+          <td>{{ vendor.address }}</td>
+          <td>{{ vendor.city }}</td>
+          <td>{{ vendor.state }}</td>
+          <td>{{ vendor.zip }}</td>
+          <td>{{ vendor.phoneNumber }}</td>
+          <td>{{ vendor.email }}</td>
+          <td>{{ vendor.isPreapproved  | bool }}</td>
+          
+          <td>
+            <a routerLink='/vendors/detail/{{vendor.id}}'>Detail</a>
+           | <a routerLink='/vendors/edit/{{vendor.id}}'>Edit</a>
+          </td>
+        </tr>
+  
+      </tbody>
+    </table>
+  
+  </div>
