@@ -1,43 +1,36 @@
 <div>
-    <div>
-  
-      <span>Product List </span>
-      | <a routerLink = '/products/create'>Create New</a>
-  
+    <div class = "link">
+      <span>Product List</span>
+      |
+      <a routerLink = '/products/create'>Create New Product</a>
     </div>
   
-    <table class = "table table-sm">
+    <table class = "table table-sm" *ngIf = "products">
       <thead>
         <tr>
-          <td>Id</td>
-          <td>Vendor</td>
-          <td>Part Number</td>
-          <td>Name</td>
-          <td>Price</td>
-          <td>Unit</td>
-          <td>Photopath</td>
-          <td>Action</td>
-  
+          <th>ID</th>
+          <th>Vendor</th>
+          <th>Part #</th>
+          <th>Name</th>
+          <th>Price ($)</th>
+          <th>Unit</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor='let product of products'>
-          <td>{{ product.id }}</td>
-          <td>{{ product.vendor.name }}</td>
-          <td>{{ product.partNumber }}</td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.price }}</td>
-          <td>{{ product.unit }}</td>
-          <td>{{ product.photoPath }}</td>
-          
-          
+        <tr *ngFor = 'let p of products | sortProducts'>
+          <td>{{p.id}}</td>
+          <td>{{p.vendor.name}}</td>
+          <td>{{p.partNumber}}</td>
+          <td>{{p.name}}</td>
+          <td>${{p.price}}</td>
+          <td>{{p.unit}}</td>
           <td>
-            <a routerLink='/products/detail/{{product.id}}'>Detail</a>
-           | <a routerLink='/products/edit/{{product.id}}'>Edit</a>
+            <a routerLink = '/products/detail/{{p.id}}'>Detail</a>
+            /
+            <a routerLink = '/products/edit/{{p.id}}'>Edit</a>
           </td>
         </tr>
-  
       </tbody>
     </table>
-  
   </div>

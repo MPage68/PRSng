@@ -1,48 +1,43 @@
 <div>
-    <div>
-  
-      <span>Vendor List </span>
-      | <a routerLink = '/vendors/create'>Create New</a> <!--pointing to a route to a different component-->
-  
+    <div class = "link">
+      <span>Vendor List</span>
+      |
+      <a routerLink = '/vendors/create'>Create New Vendor</a>
     </div>
-  
-    <table class = "table table-sm">
+    <table class = "table table-sm " *ngIf = "vendors"> <!--add ngIf for sort to work-->
       <thead>
         <tr>
-          <td>Id</td>
-          <td>Code</td>
-          <td>Name</td>
-          <td>Address</td>
-          <td>City</td>
-          <td>State</td>
-          <td>Zip</td>
-          <td>Phone</td>
-          <td>Email</td>
-          <td>Preapproved?</td>
-          <td>Action</td>
-  
+          <th>ID</th>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th>Pre-Approved?</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor='let vendor of vendors'>
-          <td>{{ vendor.id }}</td>
-          <td>{{ vendor.code }}</td>
-          <td>{{ vendor.name }}</td>
-          <td>{{ vendor.address }}</td>
-          <td>{{ vendor.city }}</td>
-          <td>{{ vendor.state }}</td>
-          <td>{{ vendor.zip }}</td>
-          <td>{{ vendor.phoneNumber }}</td>
-          <td>{{ vendor.email }}</td>
-          <td>{{ vendor.isPreapproved  | bool }}</td>
-          
+        <tr *ngFor = 'let ven of vendors | sortVendors'> 
+          <td>{{ven.id}}</td>
+          <td>{{ven.code}}</td>
+          <td>{{ven.name}}</td>
+          <td>{{ven.address}}</td>
+          <td>{{ven.city}}</td>
+          <td>{{ven.state}}</td>
+          <td>{{ven.zip}}</td>
+          <td>{{ven.phoneNumber}}</td>
+          <td>{{ven.email}}</td>
+          <td>{{ven.preApproved | bool}}</td>
           <td>
-            <a routerLink='/vendors/detail/{{vendor.id}}'>Detail</a>
-           | <a routerLink='/vendors/edit/{{vendor.id}}'>Edit</a>
+            <a routerLink = '/vendors/detail/{{ven.id}}'>Detail</a>
+            /
+            <a routerLink = '/vendors/edit/{{ven.id}}'>Edit</a>
           </td>
         </tr>
-  
       </tbody>
     </table>
-  
   </div>

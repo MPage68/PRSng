@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router'; 
 
 import { ProductService } from '../product.service';
 import { Product } from '../product.class';
@@ -13,22 +13,23 @@ export class ProductDetailComponent implements OnInit {
 
   product: Product;
 
-  constructor(private productsvc: ProductService, private route: ActivatedRoute, private router: Router) { }
-
-  deleted(): void {
-    this.productsvc.remove(this.product)
-    .subscribe(resp => {
-      console.log("resp:", resp);
+   delete(): void {
+    this.productsvc.remove(this.product).subscribe(resp => {
+      console.log("response: ", resp);
       this.router.navigateByUrl('/products/list');
-    })
+    });
   }
 
-  ngOnInit() {
-    let id = this.route.snapshot.params.id;
+  constructor(
+    private route: ActivatedRoute, 
+    private productsvc: ProductService,
+    private router: Router
+  ) { }
 
-    this.productsvc.get(id)
-    .subscribe(resp => {
-      console.log("resp:", resp);
+  ngOnInit() {    
+    let id = this.route.snapshot.params.id;     
+    this.productsvc.get(id).subscribe(resp => {
+      console.log("response: ", resp);
       this.product = resp.data;
     });
   }

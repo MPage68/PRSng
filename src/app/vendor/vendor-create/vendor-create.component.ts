@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { VendorService } from '../vendor.service';
 import { Vendor } from '../vendor.class';
 
@@ -11,16 +10,17 @@ import { Vendor } from '../vendor.class';
 })
 export class VendorCreateComponent implements OnInit {
 
+  // create instance of an EMPTY user
   vendor: Vendor = new Vendor();
 
-  save(): void {
-    this.vendorsvc.Create(this.vendor)
-      .subscribe(resp => {
-        console.log("resp:", resp);
-        this.router.navigateByUrl('/vendors/list');
-      });
+   // save things
+   save(): void {
+    this.vendorsvc.add(this.vendor).subscribe(resp => {
+      console.log("response: ", resp);
+      this.router.navigateByUrl('/vendors/list');
+    });
   }
-  
+
   constructor(
     private vendorsvc: VendorService,
     private router: Router

@@ -1,35 +1,20 @@
-<div>
+<div class = "box">
     <div>
       <span>Product Detail</span>
-  
     </div>
-    <p *ngIf="!product">Retrieving data ... this may take a while ...</p>
-    <table class = "table table-sm" *ngIf="product"> <!--adding this to the table tag is adding -->
-      <!--when this component runs I'm going to go get the First Name property or Last Name. The user instance has to be with in the property.-->
-      <tr><td>Id:</td><td>{{ product.id }}</td></tr>
-      <tr><td>Vendor:</td><td>{{ vendor.name }}</td></tr>
-      <tr><td>Part Number:</td><td>{{ product.partNumber }}</td></tr>
-      <tr><td>Name:</td><td>{{ vendor.name }}</td></tr>
-      <tr><td>Address:</td><td>{{ vendor.address }}</td></tr>
-      <tr><td>City:</td><td>{{ vendor.city }}</td></tr>
-      <tr><td>State:</td><td>{{ vendor.state }}</td></tr>
-      <tr><td>Zip:</td><td>{{ vendor.zip }}</td></tr>
-      <tr><td>Phone:</td><td>{{ vendor.phoneNumber }}</td></tr>
-      <tr><td>Email:</td><td>{{ vendor.email }}</td></tr>
-      <tr><td>Preapproved:</td><td>{{ vendor.isPreapproved ? "Yes" : "No" }}</td></tr>
-  
+    <p *ngIf = "!product">Retrieving data, hold your horses.</p>
+    <table class = "table table-sm" *ngIf = "product">
+      <tr><td>ID:</td><td>{{ product.id }}</td></tr>
+      <tr><td>Vendor:</td><td>{{ product.vendor.name }}</td></tr>
+      <tr><td>Part #:</td><td>{{ product.partNumber }}</td></tr>
+      <tr><td>Name:</td><td>{{ product.name }}</td></tr>
+      <tr><td>Price:</td><td>{{ product.price }}</td></tr>
+      <tr><td>Unit:</td><td>{{ product.unit }}</td></tr>
+      <tr *ngIf = "product.photoPath"><td>Photo Path</td><td>{{ product.photoPath }}</td></tr>
     </table>
-    
-    <div>
-      <button class="btn btn-danger" (click)='delete()'>Delete</button>
+    <br/>
+    <div class = "butn">
+      <button class = "btn btn-danger" (click) = "delete()">Delete Product</button>
+      <p>This action cannot be undone.</p>
     </div>
-  
   </div>
-  
-  id: number;
-  vendor: Vendor;
-  partNumber: string;
-  name: string;
-  price: number;
-  unit: string;
-  photoPath: string;

@@ -1,19 +1,18 @@
 export class User {
-    id: number;
+    
+    ID: number;
     userName: string;
-    firsName: string;
-    lastName: string;
     password: string;
+    firstName: string;
+    lastName: string;
     phoneNumber: string;
-    eMail: string;
-    reviewer: boolean;
-    admin: boolean;
-
-    constructor(){
-        this.id = 0;
-        this.password = '';
-        this.reviewer = false;
-        this.admin = false;
+    email: string;
+    isReviewer: boolean;
+    isAdmin: boolean;
+    
+    constructor() {
+        this.ID = 0;
+        this.isReviewer = false;
+        this.isAdmin = false;
     }
-
-}  
+}

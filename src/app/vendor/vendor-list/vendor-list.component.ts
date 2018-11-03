@@ -9,14 +9,14 @@ import { Vendor } from '../vendor.class';
 })
 export class VendorListComponent implements OnInit {
 
-  vendors: Vendor []
+  vendors: Vendor[];
 
   constructor(private vendorsvc: VendorService) { }
 
   ngOnInit() {
-    this.vendorsvc.List()
-    .subscribe(resp => {
-      console.log("Vendors:", resp);
+    this.vendorsvc.list().subscribe(resp => {
+      console.log("Vendors: ", resp.data);
+      // this displays the data
       this.vendors = resp.data;
     });
   }

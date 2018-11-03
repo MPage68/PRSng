@@ -7,17 +7,18 @@ import { User } from '../user/user.class';
 export class SortUsersPipe implements PipeTransform {
 
   transform(users: User[]): User[] {
-    let sortColumn = 'lastName';
+    console.log("sort users:", users)
+    let sortColumn = "Lastname";
     return users.sort(compareFn);
 
     function compareFn(a, b) {
       var x = (a[sortColumn]).toUpperCase();
       var y = (b[sortColumn]).toUpperCase();
-      if(a[sortColumn] === b[sortColumn]) return 0;      
-      if(x < y) return -1;
-      else {
+      if(x === y) return 0;
+      if(x < y)
+        return -1;
+      else 
         return 1;
-      }
     }
   }
 
