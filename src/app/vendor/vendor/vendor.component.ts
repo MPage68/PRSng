@@ -14,7 +14,7 @@ export class VendorComponent implements OnInit {
   constructor(private vendorsvc: VendorService) { }
 
   ngOnInit() {
-    this.vendorsvc.List()
+    this.vendorsvc.list()
       .subscribe(resp => {
         console.log("Vendors:", resp);
         this.vendors = resp.data;

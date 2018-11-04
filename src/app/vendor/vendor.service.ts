@@ -8,7 +8,7 @@ import { Vendor } from './vendor.class';
 import { JsonResponse } from '../util/json-response.class';
 
 
-const url = 'http://localhost:8080/Vendors/';
+const url = 'http://localhost:8080/Vendor/';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,7 @@ const url = 'http://localhost:8080/Vendors/';
 export class VendorService {
 
   
-  list(): Observable<JsonResponse> {
-    
+  list(): Observable<JsonResponse> {    
     return this.http.get(url + 'List') as Observable<JsonResponse>; }
 
 
