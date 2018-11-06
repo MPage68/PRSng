@@ -15,13 +15,16 @@ const url = 'http://localhost:8080/Users/';
 })
 export class UserService {
 
+  login(userName: string, password: string): Observable<JsonResponse> {
+    return this.http.get('${url}Login ${userName} ${password}') as Observable<JsonResponse>;
+  }
   
   list(): Observable<JsonResponse> {    
     return this.http.get(url + 'List') as Observable<JsonResponse>;
   }
 
 get(id): Observable<JsonResponse> {
-  return this.http.get(url + 'Get/' + id) as Observable<JsonResponse>;
+  return this.http.get(url + 'Get/${id}') as Observable<JsonResponse>;
 }
 
 add(user: User): Observable<JsonResponse> {

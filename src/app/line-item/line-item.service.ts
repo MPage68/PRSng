@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { LineItems } from './line-item.class';
 import { JsonResponse } from '../util/json-response.class';
 
-const url = 'http://localhost:8080/PurchaseRequestLineItems/';
+const url = 'http://localhost:8080/api/PurchaseRequestLineItems/';
 
 @Injectable({
   providedIn: 'root'

@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-// add these imports:
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
@@ -32,10 +32,11 @@ import { PurchaseRequestDetailComponent } from './purchase-request/purchase-requ
 import { PurchaseRequestCreateComponent } from './purchase-request/purchase-request-create/purchase-request-create.component';
 import { PurchaseRequestEditComponent } from './purchase-request/purchase-request-edit/purchase-request-edit.component';
 import { SortRequestsPipe } from './pipes/sort-requests.pipe';
-import { LineItemListComponent } from './line-item/line-item-list/line-item-list.component';
+
 import { LineItemEditComponent } from './line-item/line-item-edit/line-item-edit.component';
 import { LineItemCreateComponent } from './line-item/line-item-create/line-item-create.component';
 import { LineItemDetailComponent } from './line-item/line-item-detail/line-item-detail.component';
+import { PurchaseRequestLinesComponent } from './purchase-request/purchase-request-lines/purchase-request-lines.component';
 
 @NgModule({
   declarations: [
@@ -63,19 +64,17 @@ import { LineItemDetailComponent } from './line-item/line-item-detail/line-item-
     PurchaseRequestDetailComponent,
     PurchaseRequestCreateComponent,
     PurchaseRequestEditComponent,
-    SortRequestsPipe,
-    LineItemListComponent,
+    SortRequestsPipe,   
     LineItemDetailComponent,
     LineItemCreateComponent,
-    LineItemEditComponent,
-    LineItemListComponent,
+    LineItemEditComponent,    
     LineItemEditComponent,
     LineItemCreateComponent,
-    LineItemDetailComponent
+    LineItemDetailComponent,
+    PurchaseRequestLinesComponent
   ],
   imports: [
-    BrowserModule,
-    // add import here too:
+    BrowserModule,   
     FormsModule,
     HttpClientModule,
     AppRoutingModule

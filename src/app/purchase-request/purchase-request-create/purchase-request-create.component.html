@@ -2,7 +2,7 @@
     <div>
       <span>Request Detail</span>
     </div>
-    <p *ngIf = "!pr">Retrieving data, hold your horses.</p>
+    <p *ngIf = "!pr">Retrieving data, this may take a moment.</p>
     <table class = "table table-sm" *ngIf = "pr">
       <tr><td>ID:</td><td>{{ pr.id }}</td></tr>
       <tr><td>User:</td><td>{{ pr.user.userName }}</td></tr>
