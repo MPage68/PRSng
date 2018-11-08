@@ -2,8 +2,7 @@
     <div>
       <span class = "page-title">Add a Product</span>
     </div>
-    <div class = "container form" *ngIf = "product">  
-      
+    <div class = "container form" *ngIf = "product">       
       <div class="form-group row">
           <label class="col-form-label col-sm-2">Vendor:</label>
           <div class="col-sm-8">
@@ -11,9 +10,7 @@
               <option *ngFor="let vendor of vendors" [ngValue]="vendor.ID">{{ vendor.name }}</option>
             </select>
           </div>
-      </div>     
-  
-   
+      </div>   
       <div class="form-group row">
           <label class="col-form-label col-sm-2">Part #:</label>
           <div class="col-sm-8">
@@ -24,8 +21,7 @@
             <label *ngIf="partNumber?.errors.required">Required</label>
             <label *ngIf="partNumber?.errors.minlength">3 characters minimum</label>
           </div>
-        </div>      
-        
+        </div>        
         <div class="form-group row">
           <label class="col-form-label col-sm-2">Name:</label>
           <div class="col-sm-8">
@@ -36,8 +32,7 @@
             <label *ngIf="name?.errors.required">Required</label>
             <label *ngIf="name?.errors.minlength">3 characters minimum</label>
           </div>
-        </div>         
-        
+        </div>        
         <div class="form-group row">
           <label class="col-form-label col-sm-2">Price ($):</label>
           <div class="col-sm-8">
@@ -48,8 +43,7 @@
             <label *ngIf="price?.errors.required">Required</label>
             <label *ngIf="price?.errors.minlength">1 character minimum</label>
           </div>
-        </div>     
-       
+        </div>       
         <div class="form-group row">
           <label class="col-form-label col-sm-2">Unit:</label>
           <div class="col-sm-8">
@@ -58,8 +52,7 @@
           <div *ngIf="unit.invalid && unit.touched" class="col-form-label col-sm-2 text-danger">
             <label *ngIf="unit?.errors.required">Required</label>
           </div>
-        </div>     
-        
+        </div>        
         <div class="form-group row">
           <label class="col-form-label col-sm-2">Photo Path:</label>
           <div class="col-sm-8">
@@ -68,10 +61,8 @@
           <div *ngIf="photoPath.invalid && photoPath.touched" class="col-form-label col-sm-2 text-danger">
             <label *ngIf="photoPath?.errors.required">Required</label>
           </div>
-        </div> 
-    
+        </div>     
         <div>
           <button class = "btn btn-primary" (click) = "save()">Save</button>
-        </div>
-  
+        </div>  
   </div>

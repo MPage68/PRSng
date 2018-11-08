@@ -2,8 +2,7 @@
     <div>
       <span class = "page-title">Edit a Request</span>
     </div>
-    <div class = "container form" *ngIf = "pr">
-  
+    <div class = "container form" *ngIf = "pr">  
       <div class="form-group row">
         <label class="col-form-label col-sm-2">Description:</label>
         <div class="col-sm-8">
@@ -15,7 +14,6 @@
           <label *ngIf="description?.errors.minlength">3 characters minimum</label>
         </div>
       </div>    
-  
       <div class="form-group row">
         <label class="col-form-label col-sm-2">Justification:</label>
         <div class="col-sm-8">
@@ -26,8 +24,7 @@
           <label *ngIf="justification?.errors.required">Required</label>
           <label *ngIf="justification?.errors.minlength">5 characters minimum</label>
         </div>
-      </div>    
-     
+      </div>     
       <div class="form-group row">
         <label class="col-form-label col-sm-2">Date Needed:</label>
         <div class="col-sm-8">
@@ -38,8 +35,7 @@
           <label *ngIf="dateNeeded?.errors.required">Required</label>
           <label *ngIf="dateNeeded?.errors.minlength">3 characters minimum</label>
         </div>
-      </div>   
-     
+      </div>      
       <div class="form-group row">
         <label class="col-form-label col-sm-2">Delivery:</label>
         <div class="col-sm-8">
@@ -50,8 +46,7 @@
           <label *ngIf="deliveryMode?.errors.required">Required</label>
           <label *ngIf="deliveryMode?.errors.minlength">3 characters minimum</label>
         </div>
-      </div>       
-      
+      </div>      
       <div class="form-group row">
         <label class="col-form-label col-sm-2">Status:</label>
         <div class="col-sm-8">
@@ -62,8 +57,7 @@
           <label *ngIf="status?.errors.required">Required</label>
           <label *ngIf="status?.errors.minlength">3 characters minimum</label>
         </div>
-      </div>    
-  
+      </div>  
       <div class="form-group row">
         <label class="col-form-label col-sm-2">Total:</label>
         <div class="col-sm-8">
@@ -74,8 +68,7 @@
           <label *ngIf="total?.errors.required">Required</label>
           <label *ngIf="total?.errors.minlength">1 characters minimum</label>
         </div>
-      </div>   
-      
+      </div>       
       <div class="form-group row">
         <label class="col-form-label col-sm-2">Reson for Rejection:</label>
         <div class="col-sm-8">
@@ -87,10 +80,8 @@
           <label *ngIf="reasonForRejection?.errors.minlength">2 characters minimum</label>
         </div>
       </div>  
-  
       <div class = "butn">
         <button class = "btn btn-primary" (click) = "save()">Save</button>
-      </div>
-  
+      </div>  
     </div>
   </div>

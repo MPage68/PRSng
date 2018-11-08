@@ -12,6 +12,10 @@ const url = 'http://localhost:8080/PurchaseRequests/';
 })
 export class PurchaseRequestService {
 
+  lines(id): Observable<JsonResponse> {
+    return this.http.get(url + 'Lines/' + id) as Observable<JsonResponse>;
+  }
+
   review(id): Observable<JsonResponse> {
     return this.http.get(url + 'Review/' + id) as Observable<JsonResponse>;
   }

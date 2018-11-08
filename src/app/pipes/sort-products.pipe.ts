@@ -11,7 +11,7 @@ export class SortProductsPipe implements PipeTransform {
     return products.sort(compareFn);
 
     function compareFn(a, b) {
-      // convert to upper case so it can sort properly
+      
       var x = (a[sortColumn]).toUpperCase();
       var y = (b[sortColumn]).toUpperCase();
 

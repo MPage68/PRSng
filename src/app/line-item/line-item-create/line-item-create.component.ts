@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// imports:
 import { Router } from '@angular/router';
 import { LineItemsService } from '../line-item.service';
 import { LineItems } from '../line-item.class';

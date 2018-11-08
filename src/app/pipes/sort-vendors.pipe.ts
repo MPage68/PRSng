@@ -6,12 +6,12 @@ import { Vendor } from '../vendor/vendor.class';
 })
 export class SortVendorsPipe implements PipeTransform {
 
-  transform(vendors: Vendor[]): Vendor[] { // import User class
+  transform(vendors: Vendor[]): Vendor[] { 
     let sortColumn = "name";
     return vendors.sort(compareFn);
 
     function compareFn(a, b) {
-      // convert to upper case so it can sort properly
+      
       var x = (a[sortColumn]).toUpperCase();
       var y = (b[sortColumn]).toUpperCase();
 

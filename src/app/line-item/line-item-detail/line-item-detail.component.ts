@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import this
-import { ActivatedRoute, Router } from '@angular/router'; 
-// import UserService
+import { ActivatedRoute, Router } from '@angular/router';
 import { LineItemsService } from '../line-item.service';
-// import User class
 import { LineItems } from '../line-item.class';
 
 @Component({

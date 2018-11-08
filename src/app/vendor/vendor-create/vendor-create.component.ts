@@ -8,12 +8,11 @@ import { Vendor } from '../vendor.class';
   templateUrl: './vendor-create.component.html',
   styleUrls: ['./vendor-create.component.css']
 })
+
 export class VendorCreateComponent implements OnInit {
-
-  // create instance of an EMPTY user
+  
   vendor: Vendor = new Vendor();
-
-   // save things
+  
    save(): void {
     this.vendorsvc.add(this.vendor).subscribe(resp => {
       console.log("response: ", resp);

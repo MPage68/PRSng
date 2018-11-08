@@ -15,7 +15,6 @@ import { User } from '../user.class';
 export class UserDetailComponent implements OnInit {
  
   user : User;
-
   
   delete(): void {
     this.usersvc.remove(this.user).subscribe(resp => {
@@ -23,7 +22,6 @@ export class UserDetailComponent implements OnInit {
       this.router.navigateByUrl('/users/list');
     });
   }
-
   
   constructor(
     private route: ActivatedRoute, 

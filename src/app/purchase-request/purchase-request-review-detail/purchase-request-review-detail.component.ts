@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { SystemService } from '../../system/system.service';
 
 @Component({
-  selector: 'app-request-review-detail',
-  templateUrl: './request-review-detail.component.html',
-  styleUrls: ['./request-review-detail.component.css']
+  selector: 'app-purchase-request-review-detail',
+  templateUrl: './purchase-request-review-detail.component.html',
+  styleUrls: ['./purchase-request-review-detail.component.css']
 })
-export class RequestReviewDetailComponent implements OnInit {
+export class PurchaseRequestReviewDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private sys: SystemService
+  ) { }
 
   ngOnInit() {
+    this.sys.checkForLogin();
   }
 
 }

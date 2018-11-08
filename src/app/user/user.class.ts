@@ -11,7 +11,8 @@ export class User {
     isAdmin: boolean;
     
     constructor() {
-        this.ID = 0;
+        this.ID = 0;   
+        this.email = ''; 
         this.isReviewer = false;
         this.isAdmin = false;
     }

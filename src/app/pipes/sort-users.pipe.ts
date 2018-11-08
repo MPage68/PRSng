@@ -8,7 +8,7 @@ export class SortUsersPipe implements PipeTransform {
 
   transform(users: User[]): User[] {
     console.log("sort users:", users)
-    let sortColumn = "Lastname";
+    let sortColumn = "lastName";
     return users.sort(compareFn);
 
     function compareFn(a, b) {

@@ -8,7 +8,6 @@ import { Menu } from '../menu.class';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
   
   menus: Menu[] = [
     new Menu("Home", "/home", "Home Page"),
@@ -17,12 +16,11 @@ export class MenuComponent implements OnInit {
     new Menu("Vendors", "/vendors/list", "Vendor List"),
     new Menu("Products", "/products/list", "Product List"),
     new Menu("Purchase Requests", "/prs/list", "Request List"),
-    new Menu("Line Items", "/prlis/list", "Line Items List")
+    new Menu("Line Items", "/lineitems/create", "Line Items list")
   ]
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

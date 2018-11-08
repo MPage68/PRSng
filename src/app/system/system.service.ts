@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { User } from '../user/user.class'
 
 @Injectable({
@@ -24,7 +23,6 @@ export class SystemService {
       this.router.navigateByUrl("/users/login");
     }
   }
-
   constructor(
     private router: Router
   ) { }

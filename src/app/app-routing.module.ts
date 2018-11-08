@@ -21,6 +21,8 @@ import { PurchaseRequestDetailComponent } from './purchase-request/purchase-requ
 import { PurchaseRequestCreateComponent } from './purchase-request/purchase-request-create/purchase-request-create.component';
 import { PurchaseRequestEditComponent } from './purchase-request/purchase-request-edit/purchase-request-edit.component';
 import { PurchaseRequestLinesComponent } from './purchase-request/purchase-request-lines/purchase-request-lines.component';
+import { PurchaseRequestReviewListComponent } from './purchase-request/purchase-request-review-list/purchase-request-review-list.component';
+import { PurchaseRequestReviewDetailComponent } from './purchase-request/purchase-request-review-detail/purchase-request-review-detail.component';
 
 import { LineItemDetailComponent } from './line-item/line-item-detail/line-item-detail.component';
 import { LineItemCreateComponent } from './line-item/line-item-create/line-item-create.component';
@@ -32,7 +34,7 @@ import { AboutComponent } from './about/about.component';
 import { injectComponentFactoryResolver } from '@angular/core/src/render3';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', redirectTo: '/user/login', pathMatch: 'full'},
 
   {path: 'users/list', component: UserListComponent},
   {path: 'users/detail/:id', component: UserDetailComponent},
@@ -54,17 +56,18 @@ const routes: Routes = [
   {path: 'prs/create', component: PurchaseRequestCreateComponent},
   {path: 'prs/edit/:id', component: PurchaseRequestEditComponent},
   {path: 'prs/lines/:id', component: PurchaseRequestLinesComponent},
-
+  {path: 'prs/review/list/:id', component: PurchaseRequestLinesComponent},
+  {path: 'prs/review/detail/:id', component: PurchaseRequestLinesComponent},
+  
   
   {path: 'prlis/detail/:id', component: LineItemDetailComponent},
   {path: 'prlis/create/prsid', component: LineItemCreateComponent},
   {path: 'prlis/edit/:id', component: LineItemEditComponent},
-
+  
   {path: 'home', component: HomeComponent},
   {path: 'about', component: AboutComponent},
   {path: '**', component: UserListComponent}
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

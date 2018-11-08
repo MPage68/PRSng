@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'; 
-
 import { VendorService } from '../vendor.service';
-
 import { Vendor } from '../vendor.class';
 
 @Component({
@@ -11,10 +9,8 @@ import { Vendor } from '../vendor.class';
   styleUrls: ['./vendor-detail.component.css']
 })
 export class VendorDetailComponent implements OnInit {
-
   
   vendor : Vendor;
-
   
   delete(): void {
     this.vendorsvc.remove(this.vendor).subscribe(resp => {

@@ -1,10 +1,10 @@
 <app-menu></app-menu>
 <div class="component">
   <div>
-    <span>Product List</span>
-    | <a *ngIf="request" routerLink='/reqlines/create/{{ request.Id }}'>Create New</a>
+    <span>Request Lines</span>
+    | <a *ngIf="purchaserequest" routerLink='//requests/request-lines/{{request.Id}}'>Create New</a>
   </div>
-  <div *ngIf="request">
+  <div *ngIf="purchaserequest">
     <table class="table table-sm">
       <thead>
         <tr>
@@ -17,11 +17,11 @@
       </thead>
       <tbody>
         <tr>
-          <td>{{ request.Id }}</td>
-          <td>{{ request.Description }}</td>
-          <td>{{ request.Status }}</td>
-          <td>{{ request.Total | currency }}</td>
-          <td>{{ request.User.Lastname }}</td>
+          <td>{{ purchaserequest.Id }}</td>
+          <td>{{ purchaserequest.Description }}</td>
+          <td>{{ purchaserequest.Status }}</td>
+          <td>{{ purchaserequest.Total | currency }}</td>
+          <td>{{ purchaserequest.User.Lastname }}</td>
         </tr>
       </tbody>
     </table>
@@ -36,13 +36,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let reqline of request.Reqlines">
-          <td>{{ reqline.Product.Name }}</td>
-          <td>{{ reqline.Quantity }}</td>
-          <td>{{ reqline.Product.Price * reqline.Quantity | currency  }}</td>
+        <tr *ngFor="let lineitem of purchaserequest.Lineitems">
+          <td>{{ lineitem.Product.Name }}</td>
+          <td>{{ lineitem.Quantity }}</td>
+          <td>{{ lineitem.Product.Price * reqline.Quantity | currency  }}</td>
           <td>
-            <a routerLink='/reqlines/detail/{{reqline.Id}}'>Detail</a>
-            | <a routerLink='/reqlines/edit/{{reqline.Id}}'>Edit</a>
+            <a routerLink='/lineitems/detail/{{lineitem.Id}}'>Detail</a>
+            | <a routerLink='/lineitems/edit/{{lineitem.Id}}'>Edit</a>
           </td>
         </tr>
       </tbody>
