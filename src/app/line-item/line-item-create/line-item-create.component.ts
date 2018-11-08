@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LineItemsService } from '../line-item.service';
-import { LineItems } from '../line-item.class';
+import { LineItem } from '../line-item.class';
 import { PurchaseRequestService } from '../../purchase-request/purchase-request.service';
 import { PurchaseRequest } from '../../purchase-request/purchase-request.class';
 import { ProductService } from '../../product/product.service';
@@ -14,7 +14,7 @@ import { Product } from '../../product/product.class';
 })
 export class LineItemCreateComponent implements OnInit {
 
-  prli: LineItems = new LineItems();
+  prli: LineItem = new LineItem();
   prs: PurchaseRequest[];
   products: Product[];
 

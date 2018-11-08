@@ -6,7 +6,7 @@
       <div class="form-group row">
           <label class="col-form-label col-sm-2">Vendor:</label>
           <div class="col-sm-8">
-            <select [(ngModel)]="product.vendorID" class="form-control" name="vendor">
+            <select [(ngModel)]="product.vendor" class="form-control" name="vendor">
               <option *ngFor="let vendor of vendors" [ngValue]="vendor.ID">{{ vendor.name }}</option>
             </select>
           </div>

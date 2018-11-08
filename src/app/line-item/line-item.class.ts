@@ -2,17 +2,17 @@ import { PurchaseRequest } from "../purchase-request/purchase-request.class";
 import { Product } from "../product/product.class";
 
 export class LineItem{
-Id: number;
-    ProductId: number;
-    Product: Product;
-    RequestId: number;
-    Request: Request;
-    Quantity: number;
-    Active: boolean;
+id: number;
+    productId: number;
+    product: Product;
+    requestId: number;
+    request: PurchaseRequest;
+    quantity: number;
+    active: boolean;
 
     constructor() {
-        this.Id = 0;
-        this.Active = true;
-        this.Quantity = 1;
+        this.id = 0;
+        this.active = true;
+        this.quantity = 1;
     }
 }

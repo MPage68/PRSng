@@ -1,7 +1,8 @@
 import { User } from "../user/user.class";
 
 export class PurchaseRequest {
-    ID: number;
+    id: number; 
+    userId: number;   
     user: User;
     description: string;
     justification: string;
@@ -13,6 +14,6 @@ export class PurchaseRequest {
     reasonForRejection: string;
 
     constructor() {
-        this.ID = 0;
+        this.id = 0;
     }
 }

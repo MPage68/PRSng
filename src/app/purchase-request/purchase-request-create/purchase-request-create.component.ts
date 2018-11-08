@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'; 
 import { PurchaseRequestService } from '../purchase-request.service';
 import { PurchaseRequest } from '../purchase-request.class';
+import { User} from '../../user/user.class';
+import { SystemService } from '../../system/system.service';
+import { UserService } from '../../user/user.service';
+
 
 @Component({
   selector: 'app-purchase-request-create',
@@ -10,27 +14,30 @@ import { PurchaseRequest } from '../purchase-request.class';
 })
 export class PurchaseRequestCreateComponent implements OnInit {
 
-  pr: PurchaseRequest;
+  purchaserequest: PurchaseRequest = new PurchaseRequest();
 
-  delete(): void {
-    this.prsvc.remove(this.pr).subscribe(resp => {
-      console.log("response: ", resp);
-      this.router.navigateByUrl('/prs/list');
-    });
+  user: User = null;  
+  users: User[];
+   
+  save(): void {
+   this.prsvc.add(this.purchaserequest).subscribe(resp => {
+     console.log("response: ", resp);
+     this.router.navigateByUrl('/prs/create');
+   });
   }
 
   constructor(
     private route: ActivatedRoute, 
     private prsvc: PurchaseRequestService,
-    private router: Router
+    private router: Router,
+    private sys: SystemService,
+
   ) { }
 
   ngOnInit() {
-    let id = this.route.snapshot.params.id; 
-    this.prsvc.get(id).subscribe(resp => {
-      console.log("response: ", resp);
-      this.pr = resp.data;
-    });
+    this.sys.checkForLogin();
+    this.purchaserequest.userId = this.sys.user.ID;
+
   }
 
 }
