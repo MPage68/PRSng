@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
 import { LineItem } from './line-item.class';
 import { JsonResponse } from '../util/json-response.class';
 
@@ -12,6 +10,10 @@ const url = 'http://localhost:8080/api/PurchaseRequestLineItems/';
   providedIn: 'root'
 })
 export class LineItemsService {
+
+  login(lineitem: LineItem): Observable<JsonResponse> {
+		return this.http.post(url+"Authenticate", lineitem) as Observable<JsonResponse>;
+  }
    
      list(): Observable<JsonResponse> {
       return this.http.get(url + 'List') as Observable<JsonResponse>;

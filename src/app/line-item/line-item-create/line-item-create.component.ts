@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LineItemsService } from '../line-item.service';
 import { LineItem } from '../line-item.class';
-import { PurchaseRequestService } from '../../purchase-request/purchase-request.service';
-import { PurchaseRequest } from '../../purchase-request/purchase-request.class';
 import { ProductService } from '../../product/product.service';
 import { Product } from '../../product/product.class';
+import { PurchaseRequestService } from '../../purchase-request/purchase-request.service';
 
 @Component({
   selector: 'app-line-item-create',
@@ -13,41 +12,37 @@ import { Product } from '../../product/product.class';
   styleUrls: ['./line-item-create.component.css']
 })
 export class LineItemCreateComponent implements OnInit {
-
-  prli: LineItem = new LineItem();
-  prs: PurchaseRequest[];
   products: Product[];
-
-  save(): void {
-    this.prlisvc.add(this.prli).subscribe(resp => {
-      console.log("response: ", resp);
-      this.router.navigateByUrl('/products/list');
-    });
-  }
-
+  lineitem: LineItem = new LineItem();
+  prid: number;
   constructor(
-    private prlisvc: LineItemsService,
-    private prsvc: PurchaseRequestService,
+    private requestsvc: PurchaseRequestService,
+    private linesvc: LineItemsService,
     private productsvc: ProductService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
-
+  save(): void {
+    console.log("lineitem:", this.lineitem, ", route:", this.prid);
+    this.linesvc.add(this.lineitem)
+      .subscribe(resp => {
+        console.log("resp:", resp);
+        this.router.navigateByUrl('/lineitems/list/'+this.prid);
+      });
+  }
   ngOnInit() {
-    this.prlisvc.list().subscribe(resp => {
-      console.log("Line items: ", resp.data);
-      this.prli = resp.data;
-  });
-
-  this.prsvc.list().subscribe(resp => {
-    console.log("Requests: ", resp.data);
-    this.prs = resp.data;
-  });
-
-  this.productsvc.list().subscribe(resp => {
-    console.log("Products: ", resp.data);
-    this.products = resp.data;
-  });
-
+    this.prid = this.route.snapshot.params.id;
+    console.log("prid: ", this.prid)
+    this.requestsvc.get(this.prid)
+    .subscribe(resp => {
+      console.log("Purchase Request: ", resp)
+      this.lineitem.purchaseRequest = resp.data;
+    })
+    this.productsvc.list()
+    .subscribe(resp=> {
+      console.log("Products: ", resp);
+      this.products = resp.data;``
+    })
   }
 
 }

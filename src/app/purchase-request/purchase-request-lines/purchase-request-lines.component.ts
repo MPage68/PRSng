@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { SystemService } from '../../system/system.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { PurchaseRequestService } from '../purchase-request.service';
 import { PurchaseRequest } from '../purchase-request.class';
-
 @Component({
   selector: 'app-purchase-request-lines',
   templateUrl: './purchase-request-lines.component.html',
@@ -11,22 +10,22 @@ import { PurchaseRequest } from '../purchase-request.class';
 })
 export class PurchaseRequestLinesComponent implements OnInit {
 
-  purchaserequest: PurchaseRequest;
-
+  request: PurchaseRequest;
   constructor(
-    private sys: SystemService,
-    private requestsvc: PurchaseRequestService,
-    private route: ActivatedRoute
+    private requestsvc: PurchaseRequestService, 
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
+    // pulls id out of the get route
     let id = this.route.snapshot.params.id;
-    console.log("PrId:", id);
-    this.requestsvc.get(id)
-      .subscribe(resp => {
-        console.log("Request:", resp);
-        this.purchaserequest = resp.data;
-      });
+    // preform a get using the id
+    this.requestsvc.lines(id)
+    .subscribe(resp => {
+      console.log("resp: ", resp);
+      this.request = resp.data;
+    })
   }
 
 }
