@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { SystemService } from '../../system/system.service';
 import { PurchaseRequestService } from '../purchase-request.service';
-import { PurchaseRequest } from '../purchase-request.class';
+
 
 @Component({
   selector: 'app-purchase-request-review-list',

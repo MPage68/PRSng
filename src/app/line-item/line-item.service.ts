@@ -33,7 +33,10 @@ export class LineItemsService {
  
   remove(prli: LineItem): Observable<JsonResponse> {
     return this.http.post(url + "Remove", prli) as Observable<JsonResponse>;
-  }    
-   
+  }  
+  
+  getPrli(id): Observable<JsonResponse> {
+    return this.http.get(url+"LinesforPR/"+id) as Observable<JsonResponse>;
+  }
     constructor(private http: HttpClient) { }
 }
