@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { PurchaseRequestService } from '../purchase-request.service';
 import { PurchaseRequest } from '../purchase-request.class';
-import { UserService } from '../../user/user.service';
-import { User } from '../../user/user.class';
+import { PurchaseRequestService } from '../purchase-request.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { SystemService } from '../../system/system.service';
 
 @Component({
   selector: 'app-purchase-request-edit',
@@ -11,40 +10,31 @@ import { User } from '../../user/user.class';
   styleUrls: ['./purchase-request-edit.component.css']
 })
 export class PurchaseRequestEditComponent implements OnInit {
-
-  pr: PurchaseRequest;
-  users: User[];
-
-  save(): void {
-    this.prsvc.change(this.pr).subscribe(resp => {
-      console.log("response: ", resp);
-      this.router.navigateByUrl('/products/list');
-    });
-  }
-
-  compareFn(v1, v2) {
-    return v1.id === v2.id;
-  }
+  request: PurchaseRequest;
 
   constructor(
-    private prsvc: PurchaseRequestService, 
-    private usersvc: UserService, 
-    private route: ActivatedRoute, 
-    private router: Router
+    private syssvc: SystemService,
+    private requestsvc: PurchaseRequestService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
-
+  save(): void {
+    this.requestsvc.add(this.request)
+    .subscribe(resp => {
+      console.log("resp:", resp);
+      this.router.navigateByUrl('/requests/list');
+    });
+  }
   ngOnInit() {
     let id = this.route.snapshot.params.id;
-
-    this.prsvc.get(id).subscribe(resp => {
-      console.log("response: ", resp);
-      this.pr = resp.data;
-  });
-
-  this.usersvc.list().subscribe(resp => {
-    console.log("response: ", resp);
-    this.users = resp.data;
-  });
+    this.requestsvc.get(id)
+    .subscribe(resp => {
+      this.request = resp.data
+      if (this.syssvc.user!==this.request.user) {
+        this.router.navigateByUrl('/requests/list')
+        alert("You may only edit your own requests.")
+      }
+    })
   }
 
 }

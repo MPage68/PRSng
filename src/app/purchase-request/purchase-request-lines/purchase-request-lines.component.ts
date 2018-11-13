@@ -18,9 +18,9 @@ export class PurchaseRequestLinesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // pulls id out of the get route
+   
     let id = this.route.snapshot.params.id;
-    // preform a get using the id
+ 
     this.requestsvc.lines(id)
     .subscribe(resp => {
       console.log("resp: ", resp);
