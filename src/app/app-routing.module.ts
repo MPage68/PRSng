@@ -5,6 +5,7 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 
 import { VendorListComponent } from './vendor/vendor-list/vendor-list.component';
 import { VendorDetailComponent } from './vendor/vendor-detail/vendor-detail.component';
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path: 'users/detail/:id', component: UserDetailComponent},
   {path: 'users/create', component: UserCreateComponent},
   {path: 'users/edit/:id', component: UserEditComponent},
+  {path: 'users/login', component: UserLoginComponent },
 
   {path: 'vendors/list', component: VendorListComponent},
   {path: 'vendors/detail/:id', component: VendorDetailComponent},
@@ -56,8 +58,8 @@ const routes: Routes = [
   {path: 'prs/create', component: PurchaseRequestCreateComponent},
   {path: 'prs/edit/:id', component: PurchaseRequestEditComponent},
   {path: 'prs/lines/:id', component: PurchaseRequestLinesComponent},
-  {path: 'prs/review/list/:id', component: PurchaseRequestLinesComponent},
-  {path: 'prs/review/detail/:id', component: PurchaseRequestLinesComponent},
+  {path: 'prs/review-list', component: PurchaseRequestReviewListComponent},
+  {path: 'prs/review-detail/:id', component: PurchaseRequestReviewDetailComponent},
   
   
   {path: 'prlis/detail/:id', component: LineItemDetailComponent},

@@ -31,8 +31,11 @@ export class PurchaseRequestService {
   submit(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
     return this.http.post(url +'SubmitForReview', purchaseRequest) as Observable<JsonResponse>
   }
-  getPRsForReview(id: number): Observable<JsonResponse> {
-    return this.http.get(url +'ListReview/' +id) as Observable<JsonResponse>
+  review(id): Observable<JsonResponse> {
+    return this.http.get(url +'Review/' +id) as Observable<JsonResponse>
+  }
+  reviews(userid): Observable<JsonResponse> {
+    return this.http.get(url + 'Reviewlist/' + userid) as Observable<JsonResponse>
   }
   approve(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
     return this.http.post(url +'ApprovePR', purchaseRequest) as Observable<JsonResponse>

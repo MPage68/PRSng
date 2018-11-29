@@ -25,6 +25,7 @@ import { SortUsersPipe } from './pipes/sort-users.pipe';
 import { SortVendorsPipe } from './pipes/sort-vendors.pipe';
 import { SortProductsPipe } from './pipes/sort-products.pipe';
 import { SortRequestsPipe } from './pipes/sort-requests.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -80,6 +81,7 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
     LineItemCreateComponent,        
     LineItemEditComponent,        
     UserLoginComponent,
+    SortPipe,
   ],
   imports: [
     BrowserModule,   
