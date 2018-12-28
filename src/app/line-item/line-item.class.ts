@@ -7,8 +7,11 @@ export class LineItem {
     product: Product;
     quantity: number;
 
-    constructor() {
-        this.id = 0;
-        this.quantity= 0;
+    constructor(id: number = 0, purchaseRequest: PurchaseRequest = null,
+        product: Product = null, quantity: number = 0) {
+        this.id = id;
+        this.purchaseRequest = purchaseRequest;
+        this.product = product;
+        this.quantity = quantity;
     }
 }

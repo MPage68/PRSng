@@ -10,8 +10,10 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 
 import { MenuComponent } from './menu/menu/menu.component';
+import { MenuItemComponent } from './menu/menu-item/menu-item.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 
@@ -21,10 +23,6 @@ import { VendorCreateComponent } from './vendor/vendor-create/vendor-create.comp
 import { VendorEditComponent } from './vendor/vendor-edit/vendor-edit.component';
 
 import { BoolDisplayPipe } from './pipes/bool-display.pipe';
-import { SortUsersPipe } from './pipes/sort-users.pipe';
-import { SortVendorsPipe } from './pipes/sort-vendors.pipe';
-import { SortProductsPipe } from './pipes/sort-products.pipe';
-import { SortRequestsPipe } from './pipes/sort-requests.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 
 import { ProductListComponent } from './product/product-list/product-list.component';
@@ -36,17 +34,12 @@ import { PurchaseRequestListComponent } from './purchase-request/purchase-reques
 import { PurchaseRequestDetailComponent } from './purchase-request/purchase-request-detail/purchase-request-detail.component';
 import { PurchaseRequestCreateComponent } from './purchase-request/purchase-request-create/purchase-request-create.component';
 import { PurchaseRequestEditComponent } from './purchase-request/purchase-request-edit/purchase-request-edit.component';
-import { PurchaseRequestReviewListComponent } from './purchase-request/purchase-request-review-list/purchase-request-review-list.component';
-import { PurchaseRequestReviewDetailComponent } from './purchase-request/purchase-request-review-detail/purchase-request-review-detail.component';
-import { PurchaseRequestLinesComponent } from './purchase-request/purchase-request-lines/purchase-request-lines.component';
-
-
+import { PurchaseRequestReviewComponent } from './purchase-request/purchase-request-review/purchase-request-review.component';
 
 import { LineItemEditComponent } from './line-item/line-item-edit/line-item-edit.component';
 import { LineItemCreateComponent } from './line-item/line-item-create/line-item-create.component';
 import { LineItemDetailComponent } from './line-item/line-item-detail/line-item-detail.component';
-
-import { UserLoginComponent } from './user/user-login/user-login.component';
+import { LineItemListComponent } from './line-item/line-item-list/line-item-list.component';
 
 @NgModule({
   declarations: [
@@ -56,17 +49,14 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
     UserCreateComponent,
     UserEditComponent,
     MenuComponent,
+    MenuItemComponent,
     HomeComponent,
     AboutComponent,
     VendorListComponent,
     VendorDetailComponent,
     VendorCreateComponent,
     VendorEditComponent,
-    BoolDisplayPipe,
-    SortUsersPipe,
-    SortRequestsPipe,   
-    SortProductsPipe,
-    SortVendorsPipe,
+    BoolDisplayPipe,    
     ProductListComponent,
     ProductDetailComponent,
     ProductCreateComponent,
@@ -74,12 +64,12 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
     PurchaseRequestListComponent,
     PurchaseRequestDetailComponent,
     PurchaseRequestCreateComponent,
-    PurchaseRequestEditComponent,
-    PurchaseRequestLinesComponent,
-    PurchaseRequestReviewDetailComponent,
+    PurchaseRequestEditComponent,    
+    PurchaseRequestReviewComponent,
     LineItemDetailComponent,
     LineItemCreateComponent,        
-    LineItemEditComponent,        
+    LineItemEditComponent,
+    LineItemListComponent,        
     UserLoginComponent,
     SortPipe,
   ],

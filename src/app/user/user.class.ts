@@ -1,6 +1,8 @@
+import { last } from "@angular/router/src/utils/collection";
+
 export class User {
     
-    ID: number;
+    id: number;
     userName: string;
     password: string;
     firstName: string;
@@ -10,9 +12,16 @@ export class User {
     isReviewer: boolean;
     isAdmin: boolean;
     
-    constructor() {
-        this.ID = 0;   
-        this.email = ''; 
+    constructor(id: number = 0, userName: string = '', password: string = '', 
+    firstName: string = '', lastName: string = '', phoneNumber: string = '', 
+    email: string = '', isReviewer: boolean = false, isAdmin: boolean = false) {
+        this.id = id; 
+        this.userName = userName;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;          
+        this.email = email; 
         this.isReviewer = false;
         this.isAdmin = false;
     }

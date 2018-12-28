@@ -1,22 +1,19 @@
 
 import { Injectable } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
-
 import { Observable } from 'rxjs';
 import { User } from './user.class';
 import { JsonResponse } from '../util/json-response.class';
 
-
-const url = 'http://localhost:8080/Users/';
+const url: string = 'http://localhost:8080/Users/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  login(userName: string, password: string): Observable<JsonResponse> {
-    return this.http.get('${url}Login ${userName} ${password}') as Observable<JsonResponse>;
+  login(user: User): Observable<JsonResponse> {
+    return this.http.post(url + 'Authenticate', user) as Observable<JsonResponse>;
   }
   
   list(): Observable<JsonResponse> {    
@@ -24,7 +21,7 @@ export class UserService {
   }
 
 get(id): Observable<JsonResponse> {
-  return this.http.get(url + 'Get/${id}') as Observable<JsonResponse>;
+  return this.http.get(url + 'Get/' + id) as Observable<JsonResponse>;
 }
 
 add(user: User): Observable<JsonResponse> {

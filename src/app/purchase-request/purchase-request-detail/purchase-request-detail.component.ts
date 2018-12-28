@@ -10,7 +10,9 @@ import { SystemService } from '../../system/system.service';
   styleUrls: ['./purchase-request-detail.component.css']
 })
 export class PurchaseRequestDetailComponent implements OnInit {
+
   request: PurchaseRequest;
+  
   constructor(
     private syssvc: SystemService,
     private requestsvc: PurchaseRequestService,

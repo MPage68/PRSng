@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import { Observable } from 'rxjs';
 import { Product } from './product.class';
-
 import { JsonResponse } from '../util/json-response.class';
 
 const url = 'http://localhost:8080/Products/';
@@ -12,6 +10,10 @@ const url = 'http://localhost:8080/Products/';
   providedIn: 'root'
 })
 export class ProductService {
+
+  login(product: Product): Observable<JsonResponse> {
+    return this.http.post(url + "Authenticate", product) as Observable<JsonResponse>;
+  }
 
   list(): Observable<JsonResponse> {   
     return this.http.get(url + 'List') as Observable<JsonResponse>;
