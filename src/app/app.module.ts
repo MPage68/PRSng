@@ -13,7 +13,7 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 
 import { MenuComponent } from './menu/menu/menu.component';
-import { MenuItemComponent } from './menu/menu-item/menu-item.component';
+//import { MenuItemComponent } from './menu/menu-item/menu-item.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 
@@ -49,7 +49,7 @@ import { LineItemListComponent } from './line-item/line-item-list/line-item-list
     UserCreateComponent,
     UserEditComponent,
     MenuComponent,
-    MenuItemComponent,
+   // MenuItemComponent,
     HomeComponent,
     AboutComponent,
     VendorListComponent,

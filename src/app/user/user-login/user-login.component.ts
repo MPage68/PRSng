@@ -15,9 +15,8 @@ export class UserLoginComponent implements OnInit {
   user: User = new User();
   msg: string = '';
 
-  login(): void {
-    this.syssvc.clear();
-    this.usersvc.login(this.user.userName, this.user.password)
+  login(): void {   
+    this.usersvc.login(this.user)
       .subscribe(resp => {
         this.msg = '';
         console.log("Login Resp:", resp);

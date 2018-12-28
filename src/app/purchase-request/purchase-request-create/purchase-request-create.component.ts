@@ -11,7 +11,7 @@ import { PurchaseRequest } from '../purchase-request.class';
 })
 export class PurchaseRequestCreateComponent implements OnInit {
 
-  request: PurchaseRequest = new PurchaseRequest();
+  prs: PurchaseRequest = new PurchaseRequest();
   title: string = 'PurchaseRequest Create'
 
   constructor(
@@ -22,8 +22,8 @@ export class PurchaseRequestCreateComponent implements OnInit {
   ngOnInit() {}
 
   create() {
-    this.request.user = this.sys.getUser();
-    this.purchaserequestsvc.add(this.request)
+    this.prs.user = this.sys.getUser();
+    this.purchaserequestsvc.add(this.prs)
     .subscribe(res => {
       if(res.code != '0'){
         alert('Did not save!');

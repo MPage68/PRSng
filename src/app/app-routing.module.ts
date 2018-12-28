@@ -21,13 +21,12 @@ import { PurchaseRequestListComponent } from './purchase-request/purchase-reques
 import { PurchaseRequestDetailComponent } from './purchase-request/purchase-request-detail/purchase-request-detail.component';
 import { PurchaseRequestCreateComponent } from './purchase-request/purchase-request-create/purchase-request-create.component';
 import { PurchaseRequestEditComponent } from './purchase-request/purchase-request-edit/purchase-request-edit.component';
-import { PurchaseRequestLinesComponent } from './purchase-request/purchase-request-lines/purchase-request-lines.component';
-import { PurchaseRequestReviewListComponent } from './purchase-request/purchase-request-review-list/purchase-request-review-list.component';
-import { PurchaseRequestReviewDetailComponent } from './purchase-request/purchase-request-review-detail/purchase-request-review-detail.component';
+import { PurchaseRequestReviewComponent } from './purchase-request/purchase-request-review/purchase-request-review.component';
 
 import { LineItemDetailComponent } from './line-item/line-item-detail/line-item-detail.component';
 import { LineItemCreateComponent } from './line-item/line-item-create/line-item-create.component';
 import { LineItemEditComponent } from './line-item/line-item-edit/line-item-edit.component';
+import { LineItemListComponent } from './line-item/line-item-list/line-item-list.component';
 
 import { MenuComponent } from './menu/menu/menu.component';
 import { HomeComponent } from './home/home.component';
@@ -53,18 +52,17 @@ const routes: Routes = [
   {path: 'products/create', component: ProductCreateComponent},
   {path: 'products/edit/:id', component: ProductEditComponent},
 
-  {path: 'prs/list', component: PurchaseRequestListComponent},
-  {path: 'prs/detail/:id', component: PurchaseRequestDetailComponent},
-  {path: 'prs/create', component: PurchaseRequestCreateComponent},
-  {path: 'prs/edit/:id', component: PurchaseRequestEditComponent},
-  {path: 'prs/lines/:id', component: PurchaseRequestLinesComponent},
-  {path: 'prs/review-list', component: PurchaseRequestReviewListComponent},
-  {path: 'prs/review-detail/:id', component: PurchaseRequestReviewDetailComponent},
+  {path: 'purchase-request/list', component: PurchaseRequestListComponent},
+  {path: 'purchase-request/detail/:id', component: PurchaseRequestDetailComponent},
+  {path: 'purchase-request/create', component: PurchaseRequestCreateComponent},
+  {path: 'purchase-request/edit/:id', component: PurchaseRequestEditComponent},  
+  {path: 'purchase-request/review', component: PurchaseRequestReviewComponent},
   
   
-  {path: 'prlis/detail/:id', component: LineItemDetailComponent},
-  {path: 'prlis/create/prsid', component: LineItemCreateComponent},
-  {path: 'prlis/edit/:id', component: LineItemEditComponent},
+  {path: 'line-item/detail/:id', component: LineItemDetailComponent},
+  {path: 'line-item/create/:id', component: LineItemCreateComponent},
+  {path: 'line-item/edit/:id', component: LineItemEditComponent},
+  {path: 'line-item/list/:id', component: LineItemListComponent},
   
   {path: 'home', component: HomeComponent},
   {path: 'about', component: AboutComponent},
