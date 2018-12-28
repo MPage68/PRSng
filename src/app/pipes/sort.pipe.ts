@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {isString } from 'util';
 
 @Pipe({
     name: 'sort'
@@ -6,24 +7,27 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class SortPipe implements PipeTransform {
 
-    transform(arr: any[], col: string = 'name', order: string = 'desc'): any[] {
-        console.log('Sort users by ${col} order ${order}')
-        return arr.sort(compareFn);
+    transform(value: any, args?: any): any {
+        let arrObjects = value;
+        let column = args.sortBy;
+        let direction = args.direction;
 
-        function compareFn(a,b) {
-            var multiplier = (order === 'desc') ? -1 : 1;
-            var x = a[col];
-            var y = b[col]
-
-            if(typeof x === 'string') {
-                x = x.toUpperCase();
-                y = y.toUperCase();
+        return arrObjects.sort((a,b) => {
+            let result = 0;
+            if(isNaN(parseFloat(a[column])) || isNaN(parseFloat(b[column]))) {
+                if(a[column].toLocaleLowerCase() > b[column].toLocaleLowerCase())
+                result = -1 * direction;
+                return result;
+            } else {
+                if(a[column] > b[column])
+                result = 1 * direction;
+                else if(a[column] < b[column])
+                result = -1 * direction;
+                return result;
             }
-            if(x === y) return 0;
-            if(x < y)
-            return -1 * multiplier;
-            else
-            return 1 * multiplier;
-        }
+        });
     }
-}
+}  
+        
+        
+        
